@@ -4,7 +4,7 @@ CXXFLAGS = -lncurses -I include #-Wall -Wextra -Werror
 
 NAME = game
 
-SRC = src/Player.cpp src/Enemy.cpp src/GameManager.cpp src/main.cpp src/Star.cpp
+SRC = src/Player.cpp src/Enemy.cpp src/GameManager.cpp src/main.cpp src/Star.cpp src/Projectile.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -111,6 +111,10 @@ void Player::movePlayer(void)
 		if (_x > 1)
 			_x--;
 	}
+	else if (ch == 32)
+	{
+		spawnProjectile(_x + 1, _y, 'R');
+	}
 }
 
 void Player::onHit(void)

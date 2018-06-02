@@ -10,6 +10,7 @@
 #include <iostream>
 #include <cmath>
 #include <sys/time.h>
+#include "Projectile.hpp"
 #include "GameManager.hpp"
 #include "Enemy.hpp"
 #include "Player.hpp"

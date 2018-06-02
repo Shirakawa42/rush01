@@ -55,6 +55,7 @@ int		main()
 			starmap[thinkstar].think();
 			thinkstar++;
 		}
+		HandleProjectiles();
 		////////////////////////////////////
 		g_gm.getPlayer().movePlayer();
 		g_gm.getPlayer().putPlayer();

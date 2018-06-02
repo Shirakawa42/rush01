@@ -5,11 +5,21 @@ GameManager::GameManager()
 	this->enemyList = NULL;
 	this->currentTime = clock();
 	this->lastTime = clock();
+	this->p = NULL;
 } 
 
 GameManager::~GameManager()
 {
+	t_projectiles	*tmp;
 
+	while (p != NULL)
+	{
+		tmp = p;
+		if (p->projectile != NULL)
+			delete (p->projectile);
+		p = p->next;
+		delete (tmp);
+	}
 }
 
 
