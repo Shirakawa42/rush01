@@ -66,7 +66,7 @@ int		main()
 	initscr();
 	g_gm.win = newwin(H, W, 0, 0);
 	noecho();
-	Star bite = Star(10, 10);
+	Star bite = Star(80, 10);
 	while (1)
 	{
 		g_gm.updateTime();
@@ -79,6 +79,7 @@ int		main()
 		g_gm.getPlayer().putPlayer();
 		init_map();
 		wrefresh(g_gm.win);
+		usleep((1-g_gm.frameTime())*1000);
 	}
 	delwin(g_gm.win);
 	endwin();
