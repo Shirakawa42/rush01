@@ -22,20 +22,20 @@ unsigned int Player::getLives(void)
 	return (_lives);
 }
 
-static bool checkcollision(int x, int y, Enemy &enemy)
+static bool checkcollision(int x, int y, Enemy *enemy)
 {
-	if (x < enemy.getX())
+	if (x < enemy->getX())
 		return false;
-	if (y < enemy.getY())
+	if (y < enemy->getY())
 		return false;
 
-	int diffx = x - enemy.getX()
-	int diffy = y - enemy.getY()
-	if (diffx > enemy.GetSize())
+	int diffx = x - enemy->getX();
+	int diffy = y - enemy->getY();
+	if (diffx > enemy->getSize())
 		return false;
-	if (diffy > enemy.GetSize())
+	if (diffy > enemy->getSize())
 		return false;
-	char c = enemy.getDrawMap()[x].c_str()[y];
+	char c = enemy->getDrawMap()[x].c_str()[y];
 	if (c != ' ')
 		return (true);
 	return (false);
@@ -53,13 +53,13 @@ void Player::think()
 	}
 	else
 	{
-		t_enemy tmp;
-		tmp = g_gm.enemyList;
-		while (tmp)
+		t_enemy *tmp;
+		tmp = g_gm.getEnemyList();
+		while (tmp != NULL)
 		{
-			if (checkcollision(this->_x, this->_y, tmp))
+			if (checkcollision(this->_x, this->_y, tmp->enemy))
 			{
-				this.onHit();
+				this->onHit();
 				break;
 			}
 

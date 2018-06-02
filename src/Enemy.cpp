@@ -32,9 +32,9 @@ size_t Enemy::getSize()
 }
 
 
-std::string *getDrawMap()
+std::string *Enemy::getDrawMap()
 {
-	return (this->_getDrawMap);
+	return (this->_drawMap);
 }
 
 

@@ -6,7 +6,7 @@
 #include <ctime>
 struct t_enemy
 {
-	Enemy enemy;
+	Enemy *enemy;
 	t_enemy *next;
 };
 
