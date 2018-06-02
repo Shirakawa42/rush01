@@ -10,6 +10,7 @@ class Player {
 		unsigned int getX(void) const;
 		unsigned int getY(void) const;
 		unsigned int getLives(void);
+		float	getProjectileSpeed(void) const;
 		bool isSpawnProtected(void) const;
 		bool canShoot(void) const;
 		void think(void);
@@ -18,11 +19,14 @@ class Player {
 		void respawn(void);
 		void putPlayer(void);
 		void movePlayer(void);
+		float cooldown;
 
 	private:
 		unsigned int _lives;
 		unsigned int _x;
 		unsigned int _y;
+		float		_projectile_speed;
+		float _firerate;
 		Player(Player const &source);
 		Player & operator=(const Player & rhs);
 		bool _isSpawnProtected;
@@ -31,3 +35,4 @@ class Player {
 		bool _canShoot;
 };
 
+void	handlePlayer(void);

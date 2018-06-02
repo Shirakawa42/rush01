@@ -1,6 +1,6 @@
 #include "Game.hpp"
 
-Player::Player() : _lives(3), _x(5), _y(H / 2) // a changer
+Player::Player() : _lives(3), _x(5), _y(H / 2), _firerate(2.0f), cooldown(0.0f), _projectile_speed(0.1f) // a changer, _firerate est le temps entre les attaques
 {
 
 }
@@ -20,6 +20,11 @@ unsigned int Player::getY(void) const
 unsigned int Player::getLives(void)
 {
 	return (_lives);
+}
+
+float	Player::getProjectileSpeed(void) const
+{
+	return _projectile_speed;
 }
 
 static bool checkcollision(int x, int y, Enemy *enemy)
@@ -113,7 +118,11 @@ void Player::movePlayer(void)
 	}
 	else if (ch == 32)
 	{
-		spawnProjectile(_x + 1, _y, 'R');
+		if (cooldown <= 0.0f)
+		{
+			spawnProjectile(_x + 1, _y, 'R', _projectile_speed);
+			cooldown = _firerate;
+		}
 	}
 }
 
@@ -155,4 +164,12 @@ void Player::killed(void) // not permakilled
 {
 	this->_isSpawnProtected = true;
 	this->_SpawnProtectedTime = std::time(0);
+}
+
+void handlePlayer(void)
+{
+	g_gm.getPlayer().movePlayer();
+	g_gm.getPlayer().putPlayer();
+	if (g_gm.getPlayer().cooldown > 0.0f)
+		g_gm.getPlayer().cooldown -= 1.0f/60.0f;
 }

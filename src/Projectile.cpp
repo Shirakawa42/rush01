@@ -1,6 +1,6 @@
 #include "Game.hpp"
 
-Projectile::Projectile() : _x(1), _y(1), _direction('R')
+Projectile::Projectile() : _x(1), _y(1), _direction('R'), realX(1.0f), realY(1.0f), speed(1.0f)
 {
 	
 }
@@ -22,11 +22,14 @@ Projectile &	Projectile::operator = ( const Projectile & cpy )
 	return *this;
 }
 
-Projectile::Projectile(int x, int y, char direction)
+Projectile::Projectile(int x, int y, char direction, float s)
 {
 	_x = x;
 	_y = y;
 	_direction = direction;
+	speed = s;
+	realX = (float)x;
+	realY = (float)y;
 }
 
 char	Projectile::getDirection() const
@@ -61,8 +64,11 @@ void	deleteProjectile(Projectile *p)
 		delete tmp->projectile;
 		if (!prev)
 		{
+			if (tmp->next)
+				g_gm.p = tmp->next;
+			else
+				g_gm.p = NULL;
 			delete tmp;
-			g_gm.p = NULL;
 		}
 		else
 		{
@@ -72,7 +78,7 @@ void	deleteProjectile(Projectile *p)
 	}
 }
 
-void	spawnProjectile(int x, int y, char direction)
+void	spawnProjectile(int x, int y, char direction, float speed)
 {
 	t_projectiles	*tmp;
 
@@ -88,22 +94,28 @@ void	spawnProjectile(int x, int y, char direction)
 	if (tmp->projectile)
 	{
 		tmp->next = new (t_projectiles);
-		tmp->next->projectile = new Projectile(x, y, direction);
+		tmp->next->projectile = new Projectile(x, y, direction, speed);
 		tmp->next->next = NULL;
 		tmp->next->projectile = NULL;
 	}
 	else
 	{
-		tmp->projectile = new Projectile(x, y, direction);
+		tmp->projectile = new Projectile(x, y, direction, speed);
 	}
 }
 
 void	Projectile::move()
 {
 	if (_direction == 'R')
-		_x++;
+	{
+		realX += speed;
+		_x = (int)realX;
+	}
 	else if (_direction == 'L')
-		_x--;
+	{
+		realX -= speed;
+		_x = (int)realX;
+	}
 	wmove(g_gm.win, _y, _x);
 	wprintw(g_gm.win, "%c", '-');
 }

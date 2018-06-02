@@ -57,8 +57,7 @@ int		main()
 		}
 		HandleProjectiles();
 		////////////////////////////////////
-		g_gm.getPlayer().movePlayer();
-		g_gm.getPlayer().putPlayer();
+		handlePlayer();
 		init_map();
 		wrefresh(g_gm.win);
 		clock_t clock1 = clock();
