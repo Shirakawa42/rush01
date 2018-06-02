@@ -2,33 +2,6 @@
 
 GameManager	g_gm;
 
-void	putStrings(int x, int y, std::string *strings, int size)
-{
-	for (int i = 0 ; i < size ; i++)
-	{
-		for (int j = 0 ; strings[i][j] ; j++)
-		{
-			if (strings[i][j] != ' ')
-			{
-				wmove(g_gm.win, y + i, x + j);
-				wprintw(g_gm.win, "%c", strings[i][j]);
-			}
-		}
-	}
-}
-
-void	putString(int x, int y, std::string string)
-{
-	for (int j = 0 ; string[j] ; j++)
-	{
-		if (string[j] != ' ')
-		{
-			wmove(g_gm.win, y, x + j);
-			wprintw(g_gm.win, "%c", string[j]);
-		}
-	}
-}
-
 void	init_map()
 {
 	for (int i = 0 ; i < H ; i++)

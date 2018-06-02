@@ -1,7 +1,4 @@
-#include <GameManager.hpp>
-#include <Player.hpp>
-#include <Enemy.hpp>
-
+#include "Game.hpp"
 
 GameManager::GameManager()
 {
@@ -55,4 +52,29 @@ void GameManager::updateTime()
 	this->currentTime = clock();
 }
 
+void	GameManager::putStrings(int x, int y, std::string *strings, int size)
+{
+	for (int i = 0 ; i < size ; i++)
+	{
+		for (int j = 0 ; strings[i][j] ; j++)
+		{
+			if (strings[i][j] != ' ')
+			{
+				wmove(g_gm.win, y + i, x + j);
+				wprintw(g_gm.win, "%c", strings[i][j]);
+			}
+		}
+	}
+}
 
+void	GameManager::putString(int x, int y, std::string string)
+{
+	for (int j = 0 ; string[j] ; j++)
+	{
+		if (string[j] != ' ')
+		{
+			wmove(g_gm.win, y, x + j);
+			wprintw(g_gm.win, "%c", string[j]);
+		}
+	}
+}

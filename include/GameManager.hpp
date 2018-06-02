@@ -24,6 +24,8 @@ public:
 	WINDOW *win;
 	double frameTime();
 	void updateTime();
+	void	putStrings(int x, int y, std::string *strings, int size);
+	void	putString(int x, int y, std::string string);
 
 private:
 	GameManager(GameManager const &source);
