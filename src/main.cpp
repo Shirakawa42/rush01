@@ -74,13 +74,6 @@ int		main()
 		// c'est ici qu'on affiche des trucs
 		bite.think();
 
-		int i = 0;
-
-		while (i < 50000000)
-		{
-			cos(42)*cos(4564);
-			i++;
-		}
 		////////////////////////////////////
 		g_gm.getPlayer().movePlayer();
 		g_gm.getPlayer().putPlayer();
