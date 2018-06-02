@@ -1,0 +1,483 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"re",
+				"return"
+			],
+			[
+				"c",
+				"swap\tfunc"
+			],
+			[
+				"rang",
+				"ranged_attack_dmg"
+			],
+			[
+				"mel",
+				"melee_attack_dmg"
+			],
+			[
+				"max",
+				"max_hit_points"
+			],
+			[
+				"energy",
+				"energy_points"
+			],
+			[
+				"hit",
+				"hit_points"
+			],
+			[
+				"_nb",
+				"_nbAccounts"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "includes/Player.hpp",
+			"settings":
+			{
+				"buffer_size": 190,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#include <Player.hpp>\n\t\tPlayer();\n\t\t~Player();\n\t\tunsigned int getX(void);\n\t\tunsigned int getY(void);\n  ",
+			"file": "src/Player.cpp",
+			"file_size": 102,
+			"file_write_time": 131724120050000000,
+			"settings":
+			{
+				"buffer_size": 103,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "untitled.sublime-project",
+			"settings":
+			{
+				"buffer_size": 379,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 149.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"enabl",
+				"Package Control: Enable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"linter",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"Snippet: class\t",
+				"Snippet: class-..-(class)"
+			],
+			[
+				"packa",
+				"Package Control: Satisfy Dependencies"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 428.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/pfichepo/Desktop/rush01/includes",
+		"/Users/pfichepo/Desktop/rush01/src"
+	],
+	"file_history":
+	[
+		"/Users/pfichepo/Desktop/rush01/includes/GameManager.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex02/Makefile",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex02/Squad.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex02/main.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex02/AssaultTerminator.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex02/Squad.hpp",
+		"/Users/pfichepo/Downloads/42_Corrections-master/01_Piscines/CPP/cpp04/CPP D04.txt",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex02/ISquad.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex02/ISpaceMarine.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex02/AssaultTerminator.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex01/AWeapon.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex01/Character.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex00/Peon.cpp",
+		"/Users/pfichepo/Downloads/42_Corrections-master/01_Piscines/CPP/cpp04 (1)/CPP D04.txt",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex00/Peon.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex00/Victim.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex00/Sorcerer.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex00/Sorcerer.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex00/Victim.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex00/main.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j04/ex00/Makefile",
+		"/Volumes/Storage/cache/pfichepo/Library/Application Support/Sublime Text 3/Packages/CppFastOlympicCoding/FastOlympicCoding (OSX).sublime-settings",
+		"/private/tmp/dsebcorr/ex02/main.cpp",
+		"/private/tmp/dsebcorr/ex02/Fixed.hpp",
+		"/private/tmp/dsebcorr/ex01/Fixed.hpp",
+		"/private/tmp/dsebcorr/ex01/main.cpp",
+		"/Users/pfichepo/Desktop/j02/ex00/main.cpp",
+		"/Users/pfichepo/Desktop/j02/ex00/Makefile",
+		"/Users/pfichepo/Desktop/piscinecpp42/j02/ex02/Fixed.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j02/ex02/main.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j02/ex02/Fixed.hpp",
+		"/Users/pfichepo/Desktop/j01/ex07/main.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex07/main.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex04/ex04.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex02/ZombieEvent.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex08/Human.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex09/log_out",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex06/Weapon.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex06/HumanA.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex06/HumanA.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex06/HumanB.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex06/main.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex06/Makefile",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex06/HumanB.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex06/Weapon.hpp",
+		"/Users/pfichepo/Downloads/ressources 2/Account.class.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex00/main.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex00/Makefile",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex00/Pony.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j01/ex00/Pony.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j00/ex00/Makefile",
+		"/Users/pfichepo/Desktop/piscinecpp42/j00/ex01/Contact.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j00/ex01/Makefile",
+		"/Users/pfichepo/Desktop/piscinecpp42/j00/ex01/main.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j00/ex01/Contact.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j00/ex00/megaphone.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j00/ex01/PhoneBook.hpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j00/ex01/PhoneBook.cpp",
+		"/Users/pfichepo/Desktop/piscinecpp42/j00/ex01/Phone.Class.hpp",
+		"/Users/pfichepo/Desktop/snowcrash-42/level12/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level12/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level11/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level10/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level09/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level10/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level08/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level07/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level06/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level02/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level02/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level05/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level04/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level03/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level01/Ressources/passwd",
+		"/Users/pfichepo/Desktop/snowcrash/level01/Ressources/soluce.txt",
+		"/Users/pfichepo/Desktop/snowcrash/level05/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level08/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level09/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level11/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level07/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level06/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level04/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level03/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level01/flag",
+		"/Users/pfichepo/Desktop/snowcrash/level00/flag",
+		"/Users/pfichepo/Desktop/libftasm/src/ft_max.s",
+		"/Users/pfichepo/Desktop/libftasm/src/ft_memcpy.s",
+		"/Users/pfichepo/Desktop/libftasm/auteur",
+		"/Users/pfichepo/Desktop/libftasm/Makefile",
+		"/Users/pfichepo/Desktop/libftasm/src/ft_puts.s",
+		"/Users/pfichepo/Desktop/libftasm/src/ft_strdup.s",
+		"/Users/pfichepo/Desktop/libftasm/src/ft_strlen.s",
+		"/Users/pfichepo/Desktop/libftasm/src/ft_bzero.s",
+		"/Users/pfichepo/Desktop/libftasm/main.c",
+		"/Users/pfichepo/Desktop/libftasm/src/ft_strlen2.s",
+		"/Users/pfichepo/Desktop/libftasm/src/ft_cat.s",
+		"/Users/pfichepo/Desktop/libftasm/src/ft_min.s",
+		"/Users/pfichepo/Desktop/libftasm/ree/src/ft_min.s",
+		"/Users/pfichepo/Desktop/libftasm/ree/src/ft_max.s",
+		"/Users/pfichepo/Desktop/libftasm/ree/src/ft_cat.s",
+		"/Users/pfichepo/Desktop/42dada/main.c",
+		"/Users/pfichepo/Desktop/libftasm/ree/src/ft_bzero.s",
+		"/Users/pfichepo/Desktop/libftasm/ree/src/ft_abs.s",
+		"/Users/pfichepo/Desktop/libftasm/ree/1.txt",
+		"/Users/pfichepo/Desktop/libftasm/ree/2.txt",
+		"/Users/pfichepo/Desktop/libftasm/ree/caca.txt",
+		"/Users/pfichepo/Desktop/libftasm/ree/src/ft_puts.s",
+		"/Users/pfichepo/Desktop/libftasm/ree/Makefile",
+		"/Users/pfichepo/Desktop/libftasm/ree/main.c",
+		"/Users/pfichepo/Desktop/libftasm/ree/src/ft_toupper.s",
+		"/Users/pfichepo/Desktop/libftasm/ree/src/ft_memset.s"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "includes/Player.hpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 190,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								190,
+								15
+							]
+						],
+						"settings":
+						{
+							"SL.75.region_keys":
+							[
+								"SL.clang.Highlights.|07d6befcbea2ab48ecace3f492eb5fce5bcf7e5db0507ec726be8c93631ed61c|region.yellowish markup.warning.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.clang.Gutter.|region.yellowish markup.warning.sublime_linter|dot"
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/Player.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 103,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								100,
+								100
+							]
+						],
+						"settings":
+						{
+							"SL.76.region_keys":
+							[
+								"SL.clang.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"sublime_linter.protected_regions",
+								"SL.clang.Highlights.|552eb06787baacb141285ed7ce800a3a152dbbda4326b31fcc574aca58965137|region.redish markup.error.sublime_linter|32"
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "untitled.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 379,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								201,
+								201
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 102.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "untitled.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 247.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
