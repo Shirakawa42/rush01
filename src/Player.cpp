@@ -46,24 +46,27 @@ void Player::respawn(void)
 
 void Player::movePlayer(void)
 {
-	int		ch = wgetch(g_gm.win);
+	int		ch;
 
-	if (ch == KEY_DOWN)
+	nodelay(stdscr, TRUE);
+	ch = getch();
+
+	if (ch == 115)
 	{
-		if (_y < H - 1)
+		if (_y < H - 2)
 			_y++;
 	}
-	else if (ch == KEY_UP)
+	else if (ch == 122)
 	{
 		if (_y > 1)
 			_y--;
 	}
-	else if (ch == KEY_RIGHT)
+	else if (ch == 100)
 	{
-		if (_x < W - 1)
+		if (_x < W - 2)
 			_x++;
 	}
-	else if (ch == KEY_LEFT)
+	else if (ch == 113)
 	{
 		if (_x > 1)
 			_x--;
