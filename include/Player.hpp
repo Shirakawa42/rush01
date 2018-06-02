@@ -20,6 +20,14 @@ class Player {
 		void putPlayer(void);
 		void movePlayer(void);
 		float cooldown;
+		float realX;
+		float realY;
+		float speed;
+		bool right;
+		bool left;
+		bool up;
+		bool down;
+		bool shooting;
 
 	private:
 		unsigned int _lives;

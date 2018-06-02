@@ -1,8 +1,12 @@
 #include "Game.hpp"
 
-Player::Player() : _lives(3), _x(5), _y(H / 2), _firerate(2.0f), cooldown(0.0f), _projectile_speed(0.1f) // a changer, _firerate est le temps entre les attaques
+Player::Player() : _lives(3), _x(5), _y(H / 2), _firerate(2.0f), cooldown(0.0f), _projectile_speed(0.1f), realX(5.0f), realY((float)H / 2.0f), speed(0.03f) // a changer, _firerate est le temps entre les attaques
 {
-
+	up = false;
+	down = false;
+	left = false;
+	right = false;
+	shooting = false;
 }
 Player::~Player()
 {
@@ -98,31 +102,58 @@ void Player::movePlayer(void)
 
 	if (ch == 115)
 	{
-		if (_y < H - 2)
-			_y++;
+		if (up)
+			up = !up;
+		else
+			down = !down;
 	}
 	else if (ch == 122)
 	{
-		if (_y > 1)
-			_y--;
+		if (down)
+			down = !down;
+		else
+			up = !up;
 	}
 	else if (ch == 100)
 	{
-		if (_x < W - 2)
-			_x++;
+		if (left)
+			left = !left;
+		else
+			right = !right;
 	}
 	else if (ch == 113)
 	{
-		if (_x > 1)
-			_x--;
+		if (right)
+			right = !right;
+		else
+			left = !left;
 	}
 	else if (ch == 32)
+		shooting = !shooting;
+	if (up && _y > 1)
 	{
-		if (cooldown <= 0.0f)
-		{
-			spawnProjectile(_x + 1, _y, 'R', _projectile_speed);
-			cooldown = _firerate;
-		}
+		realY -= speed;
+		_y = (int)realY;
+	}
+	if (down && _y < H - 2)
+	{
+		realY += speed;
+		_y = (int)realY;
+	}
+	if (right && _x < W - 2)
+	{
+		realX += speed;
+		_x = (int)realX;
+	}
+	if (left && _x > 1)
+	{
+		realX -= speed;
+		_x = (int)realX;
+	}
+	if (shooting && cooldown <= 0.0f)
+	{
+		spawnProjectile(_x + 1, _y, 'R', _projectile_speed);
+		cooldown = _firerate;
 	}
 }
 
