@@ -1,5 +1,5 @@
 #include <Enemy.hpp>
-
+#include <Game.hpp>
 
 
 Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y)
@@ -37,6 +37,16 @@ std::string *Enemy::getDrawMap()
 	return (this->_drawMap);
 }
 
+void Enemy::think()
+{
+	g_gm.putStrings(this->_x, this->_y, this->_drawMap, this->_size);
+	// onhit()
+}
+
+void Enemy::onHit()
+{
+	//destroy
+}
 
 Enemy::~Enemy()
 {

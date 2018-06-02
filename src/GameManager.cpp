@@ -78,3 +78,32 @@ void	GameManager::putString(int x, int y, std::string string)
 		}
 	}
 }
+
+
+void 	GameManager::removeEnemy(Enemy *enemy)
+{
+	t_enemy *tmp = NULL;
+	t_enemy *tmp2 = NULL;
+	tmp = this->enemyList;
+	while (tmp != NULL)
+	{
+		if (tmp->next && tmp->next->enemy != enemy)
+			tmp2 = tmp; // backup for rollback and assigning the next one as next of the past one
+
+		if (tmp->enemy == enemy)
+		{
+			if (tmp2 == NULL) // first of the list found
+			{
+				if (tmp->next != NULL)
+					this->enemyList = tmp->next;
+				else
+					this->enemyList = NULL;
+			}
+			else
+				tmp2->next = tmp->next;
+			delete tmp->enemy; // dans tous les cas on delete
+			delete tmp;
+		}
+		tmp = tmp->next;
+	}
+}

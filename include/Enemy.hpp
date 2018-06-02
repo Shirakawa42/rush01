@@ -21,6 +21,8 @@ class Enemy
 		unsigned int getY();
 		size_t getSize();
 		std::string *getDrawMap();
+		void think();
+		void onHit();
 
 	private:
 		unsigned int _x;

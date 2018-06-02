@@ -1,5 +1,5 @@
 #include "Game.hpp"
-
+#define NSTARS 50
 GameManager	g_gm;
 
 void	init_map()
@@ -39,13 +39,22 @@ int		main()
 	initscr();
 	g_gm.win = newwin(H, W, 0, 0);
 	noecho();
-	Star bite = Star(10, 10);
+
+	Star starmap[NSTARS];
+	
+
+
 	while (1)
 	{
 		g_gm.updateTime();
 		wclear(g_gm.win);
 		// c'est ici qu'on affiche des trucs
-		bite.think();
+		int thinkstar = 0;
+		while (thinkstar < NSTARS-1)
+		{
+			starmap[thinkstar].think();
+			thinkstar++;
+		}
 		////////////////////////////////////
 		g_gm.getPlayer().movePlayer();
 		g_gm.getPlayer().putPlayer();

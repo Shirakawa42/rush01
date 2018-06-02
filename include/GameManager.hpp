@@ -26,6 +26,7 @@ public:
 	void updateTime();
 	void	putStrings(int x, int y, std::string *strings, int size);
 	void	putString(int x, int y, std::string string);
+	void 	removeEnemy(Enemy *enemy);
 
 private:
 	GameManager(GameManager const &source);

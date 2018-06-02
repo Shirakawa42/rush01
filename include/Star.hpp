@@ -5,6 +5,7 @@
 class Star
 {
 public:
+	Star();
 	Star(double speed, int y);
 	~Star();
 	Star(Star const &source);

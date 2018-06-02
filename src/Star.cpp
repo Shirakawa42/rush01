@@ -1,10 +1,19 @@
 #include <Star.hpp>
 #include <Game.hpp>
+#include <cstdlib>
 #define W 100
 
 Star::Star(double speed, int y) : _speed(speed), _y(y)
 {
 	this->_x = W;
+}
+
+Star::Star()
+{
+	this->_x = W;
+	this->_speed = std::rand()%50;
+	this->_y = std::rand()%(H-2) + 1;
+
 }
 
 Star::~Star()
