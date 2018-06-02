@@ -66,20 +66,22 @@ int		main()
 	initscr();
 	g_gm.win = newwin(H, W, 0, 0);
 	noecho();
-	Star bite = Star(80, 10);
+	Star bite = Star(10, 10);
 	while (1)
 	{
 		g_gm.updateTime();
 		wclear(g_gm.win);
 		// c'est ici qu'on affiche des trucs
 		bite.think();
-
 		////////////////////////////////////
 		g_gm.getPlayer().movePlayer();
 		g_gm.getPlayer().putPlayer();
 		init_map();
 		wrefresh(g_gm.win);
-		usleep((1-g_gm.frameTime())*1000);
+		clock_t clock1 = clock();
+		while ((clock() - clock1 )/CLOCKS_PER_SEC + g_gm.frameTime() < 1/60)
+		{
+		}
 	}
 	delwin(g_gm.win);
 	endwin();

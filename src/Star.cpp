@@ -23,7 +23,6 @@ void Star::think()
 	this->_x -= time * _speed;
 	if (_x <= 0)
 		_x = W;
-	//std::cout << _x << std::endl;
 	wmove(g_gm.win, this->_y, this->_x);
 	wprintw(g_gm.win, "%c", '*');
 }

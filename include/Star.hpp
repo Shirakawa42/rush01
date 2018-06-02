@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ctime>
+
 class Star
 {
 public:
