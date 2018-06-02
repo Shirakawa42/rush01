@@ -19,6 +19,8 @@ class Enemy
 		bool canShoot(void) const;
 		unsigned int getX();
 		unsigned int getY();
+		size_t getSize();
+		std::string *getDrawMap();
 
 	private:
 		unsigned int _x;

@@ -22,6 +22,27 @@ unsigned int Player::getLives(void)
 	return (_lives);
 }
 
+static bool checkcollision(int x, int y, Enemy &enemy)
+{
+	if (x < enemy.getX())
+		return false;
+	if (y < enemy.getY())
+		return false;
+
+	int diffx = x - enemy.getX()
+	int diffy = y - enemy.getY()
+	if (diffx > enemy.GetSize())
+		return false;
+	if (diffy > enemy.GetSize())
+		return false;
+	char c = enemy.getDrawMap()[x].c_str()[y];
+	if (c != ' ')
+		return (true);
+	return (false);
+
+}
+
+
 void Player::think()
 {
 	if (this->_isSpawnProtected)
@@ -29,6 +50,22 @@ void Player::think()
 		time_t curtime = std::time(0);
 		if (curtime - _SpawnProtectedTime >= 2) // hardcoded
 			this->_isSpawnProtected = false;
+	}
+	else
+	{
+		t_enemy tmp;
+		tmp = g_gm.enemyList;
+		while (tmp)
+		{
+			if (checkcollision(this->_x, this->_y, tmp))
+			{
+				this.onHit();
+				break;
+			}
+
+			tmp = tmp->next;
+		}
+
 	}
 }
 
@@ -40,7 +77,10 @@ void Player::putPlayer(void)
 
 void Player::respawn(void)
 {
-	wmove(g_gm.win, H / 2, 5);
+	_y = H / 2;
+	_x = 5;
+
+	wmove(g_gm.win, _y, _x);
 	wprintw(g_gm.win, "%c", SHIP);
 }
 

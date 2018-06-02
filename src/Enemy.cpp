@@ -16,14 +16,25 @@ Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y)
 
 }
 
-unsigned int getX()
+unsigned int Enemy::getX()
 {
 	return (this->_x);
 }
 
-unsigned int getY()
+unsigned int Enemy::getY()
 {
 	return (this->_y);
+}
+
+size_t Enemy::getSize()
+{
+	return (this->_size);
+}
+
+
+std::string *getDrawMap()
+{
+	return (this->_getDrawMap);
 }
 
 
