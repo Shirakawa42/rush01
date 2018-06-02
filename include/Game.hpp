@@ -13,5 +13,6 @@
 #include "GameManager.hpp"
 #include "Enemy.hpp"
 #include "Player.hpp"
+#include <Star.hpp>
 
 extern GameManager		g_gm;

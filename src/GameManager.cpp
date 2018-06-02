@@ -6,12 +6,13 @@
 GameManager::GameManager()
 {
 	this->enemyList = NULL;
-
+	this->currentTime = clock();
+	this->lastTime = clock();
 } 
 
 GameManager::~GameManager()
 {
-	
+
 }
 
 
@@ -42,3 +43,16 @@ t_enemy *GameManager::getEnemyList()
 {
 	return (this->enemyList);
 }
+
+double GameManager::frameTime()
+{
+	return ((double)(this->currentTime - this->lastTime)/CLOCKS_PER_SEC);
+}
+
+void GameManager::updateTime()
+{
+	this->lastTime = this->currentTime;
+	this->currentTime = clock();
+}
+
+

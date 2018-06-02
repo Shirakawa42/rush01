@@ -3,7 +3,7 @@
 #include <Player.hpp>
 #include <Enemy.hpp>
 #include <curses.h>
-
+#include <ctime>
 struct t_enemy
 {
 	Enemy enemy;
@@ -22,11 +22,17 @@ public:
 	void popEnemy(unsigned int type);
 	t_enemy *getEnemyList();
 	WINDOW *win;
+	double frameTime();
+	void updateTime();
 
 private:
 	GameManager(GameManager const &source);
 	GameManager & operator=(const GameManager & rhs);
 	Player player;
 	t_enemy *enemyList;
-
+	std::clock_t lastTime;
+	std::clock_t currentTime;
 };
+
+
+extern GameManager GM;
