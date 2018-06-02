@@ -17,6 +17,8 @@ class Enemy
 		Enemy & operator=(const Enemy & rhs);
 		size_t getSize() const;
 		bool canShoot(void) const;
+		unsigned int getX();
+		unsigned int getY();
 
 	private:
 		unsigned int _x;

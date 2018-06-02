@@ -14,9 +14,18 @@ Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y)
 				break;
 	}
 
-
-
 }
+
+unsigned int getX()
+{
+	return (this->_x);
+}
+
+unsigned int getY()
+{
+	return (this->_y);
+}
+
 
 Enemy::~Enemy()
 {
