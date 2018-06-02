@@ -16,6 +16,8 @@ class Player {
 		void killed(void);
 		void onHit(void);
 		void respawn(void);
+		void putPlayer(void);
+		void movePlayer(void);
 
 	private:
 		unsigned int _lives;

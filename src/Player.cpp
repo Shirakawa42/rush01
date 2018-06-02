@@ -1,8 +1,6 @@
-#include <Player.hpp>
+#include "Game.hpp"
 
-#include <ctime>
-
-Player::Player() : _lives(3), _x(50), _y(50) // a changer
+Player::Player() : _lives(3), _x(5), _y(H / 2) // a changer
 {
 
 }
@@ -34,9 +32,42 @@ void Player::think()
 	}
 }
 
+void Player::putPlayer(void)
+{
+	wmove(g_gm.win, _y, _x);
+	wprintw(g_gm.win, "%c", SHIP);
+}
+
 void Player::respawn(void)
 {
+	wmove(g_gm.win, H / 2, 5);
+	wprintw(g_gm.win, "%c", SHIP);
+}
 
+void Player::movePlayer(void)
+{
+	int		ch = wgetch(g_gm.win);
+
+	if (ch == KEY_DOWN)
+	{
+		if (_y < H - 1)
+			_y++;
+	}
+	else if (ch == KEY_UP)
+	{
+		if (_y > 1)
+			_y--;
+	}
+	else if (ch == KEY_RIGHT)
+	{
+		if (_x < W - 1)
+			_x++;
+	}
+	else if (ch == KEY_LEFT)
+	{
+		if (_x > 1)
+			_x--;
+	}
 }
 
 void Player::onHit(void)

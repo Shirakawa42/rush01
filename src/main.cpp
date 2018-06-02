@@ -1,16 +1,6 @@
-#include <string>
-#include <unistd.h>
-#include <iostream>
-#include <cmath>
-#include <sys/time.h>
-#include "GameManager.hpp"
-#include "Enemy.hpp"
-#include "Player.hpp"
+#include "Game.hpp"
 
-# define H 30
-# define W 100
-
-GameManager		g_gm;
+GameManager	g_gm;
 
 void	putStrings(int x, int y, std::string *strings, int size)
 {
@@ -56,7 +46,7 @@ void	init_map()
 		wprintw(g_gm.win, "%c", '#');
 	}
 }
-
+/*
 long	getMicrotime()
 {
 	struct timeval currentTime;
@@ -70,7 +60,7 @@ void	create_star(int y, double speed)
 	wmove(g_gm.win, y, (int)(std::tan(getMicrotime() * speed) * W));
 	wprintw(g_gm.win, "%c", '*');
 }
-
+*/
 int		main()
 {
 	initscr();
@@ -81,17 +71,12 @@ int		main()
 		wclear(g_gm.win);
 		// c'est ici qu'on affiche des trucs
 
-		create_star(4, 1.0);
-		create_star(8, 1.2);
-		create_star(12, 0.7);
-		create_star(16, 1.35);
-		create_star(20, 0.5);
-		create_star(24, 1.5);
 
 		////////////////////////////////////
+		g_gm.getPlayer().movePlayer();
+		g_gm.getPlayer().putPlayer();
 		init_map();
 		wrefresh(g_gm.win);
-		usleep(50000);
 	}
 	delwin(g_gm.win);
 	endwin();
