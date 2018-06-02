@@ -2,6 +2,7 @@
 
 #include <Player.hpp>
 #include <Enemy.hpp>
+#include <curses.h>
 
 struct t_enemy
 {
@@ -20,6 +21,7 @@ public:
 	~GameManager();
 	void popEnemy(unsigned int type);
 	t_enemy *getEnemyList();
+	WINDOW *win;
 
 private:
 	GameManager(GameManager const &source);

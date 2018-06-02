@@ -1,10 +1,10 @@
 CXX = clang++
 
-CXXFLAGS = -Wall -Werror -Wextra -I include
+CXXFLAGS = -lncurses -I include #-Wall -Wextra -Werror
 
-NAME = fixed
+NAME = game
 
-SRC = src/Player.cpp src/Enemy.cpp src/GameManager.cpp
+SRC = src/Player.cpp src/Enemy.cpp src/GameManager.cpp src/main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

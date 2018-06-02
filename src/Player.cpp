@@ -34,6 +34,11 @@ void Player::think()
 	}
 }
 
+void Player::respawn(void)
+{
+
+}
+
 void Player::onHit(void)
 {
 	if (this->_lives == 0)
