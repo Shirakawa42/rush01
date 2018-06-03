@@ -28,6 +28,8 @@ class Player {
 		bool up;
 		bool down;
 		bool shooting;
+		int score;
+		float actual_time;
 
 	private:
 		unsigned int _lives;

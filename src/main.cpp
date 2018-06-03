@@ -33,12 +33,14 @@ static void drawStars(Star *starmap)
 
 int		main()
 {
+	srand(time(NULL));
 	initscr();
 	g_gm.win = newwin(H, W, 0, 0);
 	noecho();
 
 	Star starmap[NSTARS];
 	time_t lastpop = std::time(0);
+
 
 	while (1)
 	{
@@ -50,6 +52,8 @@ int		main()
 
 		g_gm.updateTime();
 		wclear(g_gm.win);
+		wmove(g_gm.win, 2, 2);
+		wprintw(g_gm.win, "%s%d%s%d", "Score: ", g_gm.getPlayer().score, " | Time: ", (int)g_gm.getPlayer().actual_time);
 		HandleProjectiles();
 		HandleEnemies(); 
 		// c'est ici qu'on affiche des trucs

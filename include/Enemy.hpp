@@ -24,6 +24,8 @@ class Enemy
 		void think();
 		void onHit();
 		bool collides(unsigned int x, unsigned int y);
+		void randomMovments(void);
+		float movmentCD;
 
 	private:
 		unsigned int _x;

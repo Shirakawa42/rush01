@@ -2,7 +2,7 @@
 #include <Game.hpp>
 
 
-Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y)
+Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y), movmentCD(1.0f)
 {
 	// atension ca va aitr moch
 	switch (type)
@@ -134,6 +134,19 @@ std::string *Enemy::getDrawMap()
 	return (this->_drawMap);
 }
 
+void Enemy::randomMovments(void)
+{
+	int		i = rand() % 4;
+	if (i == 0 && _x <= W - 1 - _size)
+		_x += 1;
+	else if (i == 1 && _x > (W / 2) + _size)
+		_x -= 1;
+	else if (i == 2 && _y <= H - 1 - _size)
+		_y += 1;
+	else if (i == 3 && _y > 1 + _size)
+		_y -= 1;
+}
+
 void Enemy::think()
 {
 	g_gm.putStrings(this->_x, this->_y, this->_drawMap, this->_size);
@@ -157,7 +170,8 @@ void Enemy::think()
 
 void Enemy::onHit()
 {
-	//delete this;
+	g_gm.getPlayer().score += 100;
+	delete this;
 }
 
 
@@ -196,7 +210,16 @@ void	HandleEnemies(void)
 	while (tmp != NULL)
 	{
 		if (tmp->enemy != NULL)
+		{
 			tmp->enemy->think();
+			if (tmp->enemy->movmentCD <= 0.0f)
+			{
+				tmp->enemy->randomMovments();
+				tmp->enemy->movmentCD = 1.0f;
+			}
+			if (tmp->enemy->movmentCD >= 0.0f)
+				tmp->enemy->movmentCD -= g_gm.frameTime();
+		}
 		tmp = tmp->next;
 	}
 }
