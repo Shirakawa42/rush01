@@ -28,6 +28,7 @@ class Enemy
 		float movmentCD;
 
 	private:
+		Enemy();
 		unsigned int _x;
 		unsigned int _y;
 		double _shootingRate;

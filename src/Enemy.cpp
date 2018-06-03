@@ -1,6 +1,10 @@
 #include <Enemy.hpp>
 #include <Game.hpp>
 
+Enemy::Enemy()
+{
+
+}
 
 Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y)
 {
