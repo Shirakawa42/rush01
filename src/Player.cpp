@@ -1,5 +1,6 @@
 #include "Game.hpp"
 
+
 Player::Player() :   cooldown(0.0f),realX(5.0f), realY((float)H / 2.0f),    speed(1.0f),    _lives(3),_x(5),_y(H / 2), _projectile_speed(0.1f),  _firerate(0.6f) // a changer, _firerate est le temps entre les attaques
 {
 	up = false;
@@ -14,11 +15,11 @@ Player::~Player()
 }
 unsigned int Player::getX(void) const
 {
-	return (_y);
+	return (_x);
 }
 unsigned int Player::getY(void) const
 {
-	return (_x);
+	return (_y);
 } 
   
 unsigned int Player::getLives(void)
@@ -39,7 +40,7 @@ static bool checkProjectileCollision(void)
 	tmp = g_gm.p;
 	while (tmp)
 	{
-		if (tmp->projectile->getX() == g_gm.getPlayer().getX() && tmp->projectile->getY() == g_gm.getPlayer().getY() && tmp->projectile->getDirection() == 'R')
+		if (tmp->projectile->getX() == g_gm.getPlayer().getX() && tmp->projectile->getY() == g_gm.getPlayer().getY() && tmp->projectile->getDirection() == 'L')
 		{
 			//g_gm.removeProjectile(tmp->projectile);
 			delete tmp->projectile;
