@@ -27,7 +27,6 @@ public:
 	GameManager();
 	Player &getPlayer();
 	~GameManager();
-	void popEnemy(unsigned int type);
 	t_enemy *getEnemyList();
 	WINDOW *win;
 	double frameTime();

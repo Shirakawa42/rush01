@@ -23,7 +23,7 @@ Star::~Star()
 
 Star::Star(Star const &source)
 {
-
+	(void)source;
 }
 
 void Star::think()

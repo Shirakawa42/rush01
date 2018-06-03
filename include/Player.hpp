@@ -39,7 +39,6 @@ class Player {
 		Player & operator=(const Player & rhs);
 		bool _isSpawnProtected;
 		std::time_t _SpawnProtectedTime;
-		std::time_t _lastshoot;
 		bool _canShoot;
 };
 

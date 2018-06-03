@@ -8,19 +8,20 @@ class	Projectile
 		
 		Projectile(int x, int y, char direction, float speed);
 		~Projectile();
+		Projectile(unsigned int x, unsigned int y, char direction);
 		Projectile( const Projectile & );
 		Projectile(int x, int y, char direction);
 		Projectile &	operator = ( const Projectile & );
 		char	getDirection() const;
-		int		getX() const;
-		int		getY() const;
+		unsigned int		getX() const;
+		unsigned int		getY() const;
 		void	move(void);
 		float	realX;
 		float	realY;
 		float	speed;
 	private:
-		int		_x;
-		int		_y;
+		unsigned int		_x;
+		unsigned int		_y;
 		char	_direction;
 		Projectile();
 };

@@ -42,10 +42,6 @@ GameManager & GameManager::operator=(const GameManager & rhs)
 }
 
 
-void GameManager::popEnemy(unsigned int type)
-{
-
-}
 
 t_enemy *GameManager::getEnemyList()
 {

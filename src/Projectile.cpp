@@ -22,7 +22,7 @@
 }*/
 
 
-Projectile::Projectile(int x, int y, char direction) : _x(x), _y(y), _direction(direction),  speed(8.0f)
+Projectile::Projectile(unsigned int x, unsigned int y, char direction) :    speed(8.0f), _x(x), _y(y), _direction(direction)
 {
 
 
@@ -105,12 +105,12 @@ char	Projectile::getDirection() const
 	return _direction;
 }
 
-int		Projectile::getX() const
+unsigned int		Projectile::getX() const
 {
 	return _x;
 }
 
-int		Projectile::getY() const
+unsigned int		Projectile::getY() const
 {
 	return _y;
 }

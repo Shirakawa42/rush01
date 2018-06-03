@@ -98,7 +98,7 @@ unsigned int Enemy::getY()
 	return (this->_y);
 }
 
-size_t Enemy::getSize()
+unsigned int Enemy::getSize()
 {
 	return (this->_size);
 }
@@ -137,13 +137,13 @@ void Enemy::onHit()
 
 
 
-size_t Enemy::getSize(void) const
+unsigned int Enemy::getSize(void) const
 {
 	return (this->_size);
 }
 
 
-bool Enemy::collides(int x, int y)
+bool Enemy::collides(unsigned int x, unsigned int y)
 {
 	if (x < this->getX())
 		return false;
@@ -152,9 +152,9 @@ bool Enemy::collides(int x, int y)
 
 	int diffx = x - this->getX();
 	int diffy = y - this->getY();
-	if (diffx > this->getSize())
+	if (diffx > (int)this->getSize())
 		return false;
-	if (diffy > this->getSize())
+	if (diffy > (int)this->getSize())
 		return false;
 	char c = this->getDrawMap()[x].c_str()[y];
 	if (c != ' ')

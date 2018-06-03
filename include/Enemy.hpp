@@ -15,15 +15,15 @@ class Enemy
 		~Enemy();
 		Enemy(Enemy const &source);
 		Enemy & operator=(const Enemy & rhs);
-		size_t getSize() const;
+		unsigned int getSize() const;
 		bool canShoot(void) const;
 		unsigned int getX();
 		unsigned int getY();
-		size_t getSize();
+		unsigned int getSize();
 		std::string *getDrawMap();
 		void think();
 		void onHit();
-		bool collides(int x, int y);
+		bool collides(unsigned int x, unsigned int y);
 
 	private:
 		unsigned int _x;
@@ -31,5 +31,5 @@ class Enemy
 		double _shootingRate;
 		std::string *_drawMap;
 		std::clock_t _lastshoot;
-		size_t _size;
+		unsigned int _size;
 };

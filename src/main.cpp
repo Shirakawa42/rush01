@@ -26,7 +26,7 @@ static void drawStars(Star *starmap)
 	int thinkstar = 0;
 	while (thinkstar < NSTARS-1)
 	{
-		//starmap[thinkstar].think();
+		starmap[thinkstar].think();
 		thinkstar++;
 	}
 }
@@ -55,7 +55,7 @@ int		main()
 		handlePlayer();
 		init_map();
 		wrefresh(g_gm.win);
-		clock_t clock1 = clock();
+
 
 	}
 	delwin(g_gm.win);
