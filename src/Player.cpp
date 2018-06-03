@@ -102,36 +102,6 @@ void Player::movePlayer(void)
 	this->left = (ch==97);
 	this->shooting = (ch==32);
 
-	/*if (ch == 115) // s
-	{
-		if (up)
-			up = !up;
-		else
-			down = !down;
-	}
-	else if (ch == 122) // z
-	{
-		if (down)
-			down = !down;
-		else
-			up = !up;
-	}
-	else if (ch == 100) // d
-	{
-		if (left)
-			left = !left;
-		else
-			right = !right;
-	}
-	else if (ch == 113) // q
-	{
-		if (right)
-			right = !right;
-		else
-			left = !left;
-	}
-	else if (ch == 32) // espace
-		shooting = !shooting;*/
 	if (up && _y > 1)
 	{
 		realY -= speed;

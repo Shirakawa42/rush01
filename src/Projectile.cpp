@@ -39,7 +39,6 @@ Projectile::Projectile(int x, int y, char direction) : _x(x), _y(y), _direction(
 	tmp->next->next = NULL;
 	realX = (double)x;
 	realY = (double)y;
-
 }
 
 Projectile::~Projectile()
@@ -49,12 +48,12 @@ Projectile::~Projectile()
 
 	prev = NULL;
 	tmp = g_gm.p;
-	while (tmp != NULL && tmp->projectile != this)
+	while (tmp && tmp->projectile != this)
 	{
 		prev = tmp;
 		tmp = tmp->next;
 	}
-	if (tmp != NULL && tmp->projectile == this)
+	if (tmp && tmp->projectile == this)
 	{
 		//delete tmp->projectile; // pas de boucle infinie svp les enfants
 		if (!prev)
@@ -71,8 +70,6 @@ Projectile::~Projectile()
 			delete tmp;
 		}
 	}
-	else
-		exit(0);
 }
 
 Projectile::Projectile( const Projectile & cpy )
@@ -130,17 +127,20 @@ void	Projectile::move()
 void	HandleProjectiles(void)
 {
 	t_projectiles	*tmp;
+	t_projectiles	*tmp2;
 
 	tmp = g_gm.p;
 	while (tmp != NULL)
 	{
 		if (tmp->projectile != NULL)
 		{
+			tmp2 = tmp->next;
 			tmp->projectile->move();
 			if (tmp->projectile->getX() >= W || tmp->projectile->getX() <= 0)
 				delete tmp->projectile;
-			break;
+			tmp = tmp2;
 		}
-		tmp = tmp->next;
+		else
+			tmp = tmp->next;
 	}
 }
