@@ -107,7 +107,6 @@ Enemy::~Enemy()
 	}
 	if (tmp && tmp->enemy == this)
 	{
-		//delete tmp->projectile; // pas de boucle infinie svp les enfants
 		if (prev == NULL)
 		{
 			if (tmp->next)
@@ -236,8 +235,6 @@ bool Enemy::collides(unsigned int x, unsigned int y)
 		return false;
 	if (diffy > (int)this->getSize()-1)
 		return false;
-	std::cout << "reeeeeee " << diffx << "   " <<  (int)this->getSize() << std::endl;
-	std::cout << "raaaa " << diffy << "   " <<  (int)this->getSize() << std::endl;
 	char c = this->getDrawMap()[diffy][diffx];
 	if (c != ' ')
 		return (true);
