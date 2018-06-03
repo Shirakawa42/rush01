@@ -45,11 +45,12 @@ int		main()
 	{
 		g_gm.updateTime();
 		wclear(g_gm.win);
+		HandleProjectiles();
 		bite.think();
 		// c'est ici qu'on affiche des trucs
 		drawStars(starmap);
 		g_gm.getPlayer().think();
-		HandleProjectiles();
+		
 		////////////////////////////////////
 		handlePlayer();
 		init_map();

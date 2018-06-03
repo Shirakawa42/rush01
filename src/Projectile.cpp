@@ -1,6 +1,8 @@
 #include "Game.hpp"
 
-Projectile::Projectile() : _x(1), _y(1), _direction('R'), realX(1.0f), realY(1.0f), speed(8.0f)
+
+#include <fstream>
+/*Projectile::Projectile() : _x(1), _y(1), _direction('R'), realX(1.0f), realY(1.0f), speed(8.0f)
 {
 	t_projectiles	*tmp;
 
@@ -17,13 +19,15 @@ Projectile::Projectile() : _x(1), _y(1), _direction('R'), realX(1.0f), realY(1.0
 	tmp->next = new (t_projectiles);
 	tmp->next->projectile = this;
 	tmp->next->next = NULL;
-}
+}*/
 
 
 Projectile::Projectile(int x, int y, char direction) : _x(x), _y(y), _direction(direction),  speed(8.0f)
 {
 	t_projectiles	*tmp;
 
+	realX = (double)x;
+	realY = (double)y;
 	if (g_gm.p == NULL)
 	{
 		g_gm.p = new (t_projectiles);
@@ -37,8 +41,7 @@ Projectile::Projectile(int x, int y, char direction) : _x(x), _y(y), _direction(
 	tmp->next = new (t_projectiles);
 	tmp->next->projectile = this;
 	tmp->next->next = NULL;
-	realX = (double)x;
-	realY = (double)y;
+
 }
 
 Projectile::~Projectile()
@@ -111,7 +114,7 @@ int		Projectile::getY() const
 void	Projectile::move()
 {
 	if (_direction == 'R')
-	{
+	{		
 		realX += speed * g_gm.frameTime();
 		_x = (int)realX;
 	}

@@ -87,6 +87,9 @@ void Player::respawn(void)
 {
 	_y = H / 2;
 	_x = 5;
+
+	realX = _x;
+	realY = _y;
 }
 
 void Player::movePlayer(void)
@@ -122,8 +125,10 @@ void Player::movePlayer(void)
 		realX -= speed;
 		_x = (int)realX;
 	}
-	if (shooting && cooldown <= 0.0f)
+	if (shooting)
 	{
+
+		
 		new Projectile(_x + 1, _y, 'R');
 		cooldown = _firerate;
 	}
@@ -133,7 +138,8 @@ void Player::onHit(void)
 {
 	if (this->_lives == 0)
 	{
-		//endgame
+		std::cout << std::endl << "sans rancune tete de prune" <<std::endl;
+		exit(0);
 		return;
 	}
 	this->_lives--;
