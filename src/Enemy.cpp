@@ -63,7 +63,7 @@ Enemy::~Enemy()
 				g_gm.enemyList = tmp->next;
 			else
 				g_gm.enemyList = NULL;
-			//delete tmp;
+			delete tmp;
 		}
 		else
 		{
@@ -71,7 +71,7 @@ Enemy::~Enemy()
 				prev->next = tmp->next;
 			else
 				prev->next = NULL;
-			//delete tmp;
+			delete tmp;
 		}
 	}
 }
