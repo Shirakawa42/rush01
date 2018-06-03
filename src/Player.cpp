@@ -67,6 +67,7 @@ void Player::think()
 			if (tmp->enemy->collides(this->_x, this->_y))
 			{
 				this->onHit();
+				tmp->enemy->onHit();
 				break;
 			}
 

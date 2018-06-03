@@ -24,10 +24,11 @@
 
 Projectile::Projectile(int x, int y, char direction) : _x(x), _y(y), _direction(direction),  speed(8.0f)
 {
-	t_projectiles	*tmp;
+
 
 	realX = (double)x;
 	realY = (double)y;
+	t_projectiles	*tmp;
 	if (g_gm.p == NULL)
 	{
 		g_gm.p = new (t_projectiles);
@@ -62,14 +63,17 @@ Projectile::~Projectile()
 		if (!prev)
 		{
 			if (tmp->next)
-				g_gm.p = tmp->next;
+				g_gm.p = tmp->next; // ca rient pas au meme non ?
 			else
 				g_gm.p = NULL;
 			delete tmp;
 		}
 		else
 		{
-			prev = tmp->next;
+			if (tmp->next)
+				prev->next = tmp->next;
+			else
+				prev->next = NULL;
 			delete tmp;
 		}
 	}

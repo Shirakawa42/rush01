@@ -34,17 +34,15 @@ public:
 	void updateTime();
 	void	putStrings(int x, int y, std::string *strings, int size);
 	void	putString(int x, int y, std::string string);
-	void 	removeEnemy(Enemy *enemy);
 	t_projectiles	*p;
 	void removeProjectile(Projectile *enemy);
 	int score;
-	void registerEnemy(Enemy *enemy);
-
+	t_enemy *enemyList;
 private:
 	GameManager(GameManager const &source);
 	GameManager & operator=(const GameManager & rhs);
 	Player player;
-	t_enemy *enemyList;
+	
 	std::clock_t lastTime;
 	std::clock_t currentTime;
 };

@@ -24,13 +24,56 @@ Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y)
 
 	_x -= this->_size; 
 	this->_lastshoot = clock();
-	g_gm.registerEnemy(this);
+	
 	_shootingRate = 1;
+
+	t_enemy	*tmp;
+	if (g_gm.enemyList == NULL)
+	{
+		g_gm.enemyList = new (t_enemy);
+		g_gm.enemyList->enemy = this;
+		g_gm.enemyList->next = NULL;
+		return;
+	}
+	tmp = g_gm.enemyList;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new (t_enemy);
+	tmp->next->enemy = this;
+	tmp->next->next = NULL;
+
 }
 
 Enemy::~Enemy()
 {
-	g_gm.removeEnemy(this);
+	t_enemy	*tmp = g_gm.enemyList;;
+	t_enemy	*prev = NULL;;
+
+	while (tmp != NULL && tmp->enemy != this)
+	{
+		prev = tmp;
+		tmp = tmp->next;
+	}
+	if (tmp && tmp->enemy == this)
+	{
+		//delete tmp->projectile; // pas de boucle infinie svp les enfants
+		if (prev == NULL)
+		{
+			if (tmp->next)
+				g_gm.enemyList = tmp->next;
+			else
+				g_gm.enemyList = NULL;
+			//delete tmp;
+		}
+		else
+		{
+			if (tmp->next)
+				prev->next = tmp->next;
+			else
+				prev->next = NULL;
+			//delete tmp;
+		}
+	}
 }
 
 Enemy::Enemy(Enemy const &source)
@@ -87,7 +130,7 @@ void Enemy::think()
 
 void Enemy::onHit()
 {
-	//g_gm.destroyProjectile(self);
+	delete this;
 }
 
 
