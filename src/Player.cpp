@@ -1,8 +1,10 @@
 #include "Game.hpp"
 
 
-Player::Player() :   cooldown(0.0f),realX(5.0f), realY((float)H / 2.0f),    speed(1.0f),    _lives(3),_x(5),_y(H / 2), _projectile_speed(0.1f),  _firerate(0.6f), score(0), actual_time(0) // a changer, _firerate est le temps entre les attaques
+Player::Player() :   cooldown(0.0f),realX(5.0f), realY((float)H / 2.0f),    speed(1.0f),    _lives(3),_x(5),_y(H / 2), _projectile_speed(0.1f),  _firerate(0.6f)
 {
+	actual_time = 0;
+	score = 0;
 	up = false;
 	down = false;
 	left = false;

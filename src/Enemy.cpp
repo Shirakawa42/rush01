@@ -2,8 +2,9 @@
 #include <Game.hpp>
 
 
-Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y), movmentCD(1.0f)
+Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y)
 {
+	movmentCD = 1.0f;
 	// atension ca va aitr moch
 	switch (type)
 	{
