@@ -106,6 +106,8 @@ void Player::movePlayer(void)
 	this->left = (ch==97);
 	this->shooting = (ch==32);
 
+	g_gm.end = (ch==27);
+
 	if (up && _y > 1)
 	{
 		realY -= speed;
@@ -137,8 +139,7 @@ void Player::onHit(void)
 {
 	if (this->_lives == 0)
 	{
-		std::cout << std::endl << "sans rancune tete de prune" <<std::endl;
-		exit(0);
+		g_gm.end = true;
 		return;
 	}
 	this->_lives--;

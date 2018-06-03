@@ -37,6 +37,7 @@ public:
 	void removeProjectile(Projectile *enemy);
 	int score;
 	t_enemy *enemyList;
+	bool	end;
 private:
 	GameManager(GameManager const &source);
 	GameManager & operator=(const GameManager & rhs);
