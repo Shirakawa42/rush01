@@ -208,7 +208,7 @@ void Enemy::think()
 
 void Enemy::onHit()
 {
-	g_gm.getPlayer().score += 100;
+	g_gm.getPlayer().score += (100/this->_size);
 	delete this;
 }
 
