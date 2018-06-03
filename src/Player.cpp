@@ -1,6 +1,6 @@
 #include "Game.hpp"
 
-Player::Player() : _lives(3), _x(5), _y(H / 2), _firerate(2.0f), cooldown(0.0f), _projectile_speed(0.1f), realX(5.0f), realY((float)H / 2.0f), speed(0.03f) // a changer, _firerate est le temps entre les attaques
+Player::Player() : _lives(3), _x(5), _y(H / 2), _firerate(2.0f), cooldown(0.0f), _projectile_speed(0.1f), realX(5.0f), realY((float)H / 2.0f), speed(1.0f) // a changer, _firerate est le temps entre les attaques
 {
 	up = false;
 	down = false;
@@ -115,36 +115,42 @@ void Player::movePlayer(void)
 	nodelay(stdscr, TRUE);
 	ch = getch();
 
-	if (ch == 115)
+	this->down = (ch==115);
+	this->up = (ch==122);
+	this->right = (ch==100);
+	this->left = (ch==113);
+	this->shooting = (ch==32);
+
+	/*if (ch == 115) // s
 	{
 		if (up)
 			up = !up;
 		else
 			down = !down;
 	}
-	else if (ch == 122)
+	else if (ch == 122) // z
 	{
 		if (down)
 			down = !down;
 		else
 			up = !up;
 	}
-	else if (ch == 100)
+	else if (ch == 100) // d
 	{
 		if (left)
 			left = !left;
 		else
 			right = !right;
 	}
-	else if (ch == 113)
+	else if (ch == 113) // q
 	{
 		if (right)
 			right = !right;
 		else
 			left = !left;
 	}
-	else if (ch == 32)
-		shooting = !shooting;
+	else if (ch == 32) // espace
+		shooting = !shooting;*/
 	if (up && _y > 1)
 	{
 		realY -= speed;
@@ -216,6 +222,6 @@ void handlePlayer(void)
 {
 	g_gm.getPlayer().movePlayer();
 	g_gm.getPlayer().putPlayer();
-	if (g_gm.getPlayer().cooldown > 0.0f)
-		g_gm.getPlayer().cooldown -= 1.0f/60.0f;
+	/*if (g_gm.getPlayer().cooldown > 0.0f)
+		g_gm.getPlayer().cooldown -= 1.0f/60.0f;*/
 }

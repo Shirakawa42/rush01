@@ -20,6 +20,17 @@ void	init_map()
 	}
 }
 
+
+static void drawStars(Star *starmap)
+{
+	int thinkstar = 0;
+	while (thinkstar < NSTARS-1)
+	{
+		starmap[thinkstar].think();
+		thinkstar++;
+	}
+}
+
 int		main()
 {
 	initscr();
@@ -35,12 +46,7 @@ int		main()
 		g_gm.updateTime();
 		wclear(g_gm.win);
 		// c'est ici qu'on affiche des trucs
-		int thinkstar = 0;
-		while (thinkstar < NSTARS-1)
-		{
-			starmap[thinkstar].think();
-			thinkstar++;
-		}
+		drawStars(starmap);
 		HandleProjectiles();
 		////////////////////////////////////
 		handlePlayer();
