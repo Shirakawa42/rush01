@@ -31,5 +31,8 @@ class Enemy
 		double _shootingRate;
 		std::string *_drawMap;
 		std::clock_t _lastshoot;
+
 		unsigned int _size;
 };
+
+void	HandleEnemies(void);
