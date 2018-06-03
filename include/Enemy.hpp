@@ -37,4 +37,3 @@ class Enemy
 		unsigned int _size;
 };
 
-void	HandleEnemies(void);

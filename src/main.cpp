@@ -63,8 +63,8 @@ int		main()
 				" | Time: ", (int)g_gm.getPlayer().actual_time, " | Lives: ",
 				g_gm.getPlayer().getLives());
 		wattron(g_gm.win, COLOR_PAIR(1));
-		HandleProjectiles();
-		HandleEnemies(); 
+		g_gm.HandleProjectiles(); 
+		g_gm.HandleEnemies(); 
 		wattron(g_gm.win, COLOR_PAIR(3));
 		drawStars(starmap);
 		g_gm.getPlayer().think();

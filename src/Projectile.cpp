@@ -131,23 +131,4 @@ void	Projectile::move()
 	wprintw(g_gm.win, "%c", '-');
 }
 
-void	HandleProjectiles(void)
-{
-	t_projectiles	*tmp;
-	t_projectiles	*tmp2;
 
-	tmp = g_gm.p;
-	while (tmp != NULL)
-	{
-		if (tmp->projectile != NULL)
-		{
-			tmp2 = tmp->next;
-			tmp->projectile->move();
-			if (tmp->projectile->getX() >= W || tmp->projectile->getX() <= 0)
-				delete tmp->projectile;
-			tmp = tmp2;
-		}
-		else
-			tmp = tmp->next;
-	}
-}
