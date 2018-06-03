@@ -6,6 +6,7 @@ GameManager::GameManager()
 	this->currentTime = clock();
 	this->lastTime = clock();
 	this->p = NULL;
+	this->end = false;
 	score = 0;
 } 
 

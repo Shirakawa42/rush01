@@ -42,30 +42,30 @@ int		main()
 	time_t lastpop = std::time(0);
 
 
-	while (1)
+	while (g_gm.end == false)
 	{
 		if (std::time(0) > lastpop + 4)
 		{
 			new Enemy(W-8, 3 + std::rand()%(H-12), 1+std::rand()%4);
 			lastpop = std::time(0);
 		} 
-
 		g_gm.updateTime();
 		wclear(g_gm.win);
 		wmove(g_gm.win, 2, 2);
-		wprintw(g_gm.win, "%s%d%s%d", "Score: ", g_gm.getPlayer().score, " | Time: ", (int)g_gm.getPlayer().actual_time);
+		wprintw(g_gm.win, "%s%d%s%d%s%d", "Score: ", g_gm.getPlayer().score,
+				" | Time: ", (int)g_gm.getPlayer().actual_time, " | Lives: ",
+				g_gm.getPlayer().getLives());
 		HandleProjectiles();
 		HandleEnemies(); 
-		// c'est ici qu'on affiche des trucs
 		drawStars(starmap);
 		g_gm.getPlayer().think();
-		
-		////////////////////////////////////
 		handlePlayer();
 		init_map();
 		wrefresh(g_gm.win);
 	}
+	wclear(g_gm.win);
 	delwin(g_gm.win);
 	endwin();
+	std::cout << "YOU LOOSE !" << std::endl;
 	return 0;
 }
