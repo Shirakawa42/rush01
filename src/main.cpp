@@ -35,6 +35,9 @@ int		main()
 {
 	srand(time(NULL));
 	initscr();
+	start_color();
+	init_pair(1, COLOR_RED, COLOR_BLACK);
+	init_pair(2, COLOR_GREEN, COLOR_BLACK);
 	g_gm.win = newwin(H, W, 0, 0);
 	noecho();
 
@@ -52,9 +55,11 @@ int		main()
 		g_gm.updateTime();
 		wclear(g_gm.win);
 		wmove(g_gm.win, 2, 2);
+		wattron(g_gm.win, COLOR_PAIR(1));
 		wprintw(g_gm.win, "%s%d%s%d%s%d", "Score: ", g_gm.getPlayer().score,
 				" | Time: ", (int)g_gm.getPlayer().actual_time, " | Lives: ",
 				g_gm.getPlayer().getLives());
+		wattron(g_gm.win, COLOR_PAIR(2));
 		HandleProjectiles();
 		HandleEnemies(); 
 		drawStars(starmap);
