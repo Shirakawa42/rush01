@@ -51,6 +51,20 @@ static bool checkcollision(int x, int y, Enemy *enemy)
 
 }
 
+static bool checkProjectileCollision(void)
+{
+	t_projectiles	*tmp;
+
+	tmp = g_gm.p;
+	while (tmp)
+	{
+		if (tmp->projectile->getX() == g_gm.getPlayer().getX() &&
+				tmp->projectile->getY() == g_gm.getPlayer().getY())
+			return true;
+		tmp = tmp->next;
+	}
+	return false;
+}
 
 void Player::think()
 {
@@ -74,7 +88,8 @@ void Player::think()
 
 			tmp = tmp->next;
 		}
-
+		if (checkProjectileCollision())
+			this->onHit();
 	}
 }
 

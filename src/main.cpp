@@ -1,5 +1,5 @@
 #include "Game.hpp"
-#define NSTARS 50
+
 GameManager	g_gm;
 
 void	init_map()
@@ -19,21 +19,7 @@ void	init_map()
 		wprintw(g_gm.win, "%c", '#');
 	}
 }
-/*
-long	getMicrotime()
-{
-	struct timeval currentTime;
-	gettimeofday(&currentTime, NULL);
-	return currentTime.tv_sec * (int)1e6 + currentTime.tv_usec;
-}
 
-void	create_star(int y, double speed)
-{
-	// fonctionne pas trop, a ameliorer
-	wmove(g_gm.win, y, (int)(std::tan(getMicrotime() * speed) * W));
-	wprintw(g_gm.win, "%c", '*');
-}
-*/
 int		main()
 {
 	initscr();

@@ -4,6 +4,7 @@
 # define W 100
 # define H 30
 # define SHIP 'D'
+# define NSTARS 50
 
 #include <string>
 #include <unistd.h>
