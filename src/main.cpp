@@ -38,6 +38,9 @@ int		main()
 	start_color();
 	init_pair(1, COLOR_RED, COLOR_BLACK);
 	init_pair(2, COLOR_GREEN, COLOR_BLACK);
+	init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+	init_pair(4, COLOR_MAGENTA, COLOR_BLACK);
+	init_pair(5, COLOR_BLACK, COLOR_BLACK);
 	g_gm.win = newwin(H, W, 0, 0);
 	noecho();
 
@@ -55,16 +58,19 @@ int		main()
 		g_gm.updateTime();
 		wclear(g_gm.win);
 		wmove(g_gm.win, 2, 2);
-		wattron(g_gm.win, COLOR_PAIR(1));
+		wattron(g_gm.win, COLOR_PAIR(4));
 		wprintw(g_gm.win, "%s%d%s%d%s%d", "Score: ", g_gm.getPlayer().score,
 				" | Time: ", (int)g_gm.getPlayer().actual_time, " | Lives: ",
 				g_gm.getPlayer().getLives());
-		wattron(g_gm.win, COLOR_PAIR(2));
+		wattron(g_gm.win, COLOR_PAIR(1));
 		HandleProjectiles();
 		HandleEnemies(); 
+		wattron(g_gm.win, COLOR_PAIR(3));
 		drawStars(starmap);
 		g_gm.getPlayer().think();
+		wattron(g_gm.win, COLOR_PAIR(4));
 		handlePlayer();
+		wattron(g_gm.win, COLOR_PAIR(5));
 		init_map();
 		wrefresh(g_gm.win);
 	}
