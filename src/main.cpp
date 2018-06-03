@@ -64,8 +64,6 @@ int		main()
 		handlePlayer();
 		init_map();
 		wrefresh(g_gm.win);
-
-
 	}
 	delwin(g_gm.win);
 	endwin();

@@ -11,16 +11,7 @@ GameManager::GameManager()
 
 GameManager::~GameManager()
 {
-	t_projectiles	*tmp;
 
-	while (p != NULL)
-	{
-		tmp = p;
-		if (p->projectile != NULL)
-			delete (p->projectile);
-		p = p->next;
-		delete (tmp);
-	}
 }
 
 
