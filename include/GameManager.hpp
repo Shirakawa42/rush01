@@ -38,6 +38,9 @@ public:
 	int score;
 	t_enemy *enemyList;
 	bool	end;
+	void HandleEnemies(void);
+	void handlePlayer(void);
+	void	HandleProjectiles(void);
 private:
 	GameManager(GameManager const &source);
 	GameManager & operator=(const GameManager & rhs);
