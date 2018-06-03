@@ -1,6 +1,6 @@
 #include "Game.hpp"
 
-Player::Player() : _lives(3), _x(5), _y(H / 2), _firerate(2.0f), cooldown(0.0f), _projectile_speed(0.1f), realX(5.0f), realY((float)H / 2.0f), speed(1.0f) // a changer, _firerate est le temps entre les attaques
+Player::Player() : _lives(3), _x(5), _y(H / 2), _firerate(0.6f), cooldown(0.0f), _projectile_speed(0.1f), realX(5.0f), realY((float)H / 2.0f), speed(1.0f) // a changer, _firerate est le temps entre les attaques
 {
 	up = false;
 	down = false;
@@ -126,10 +126,8 @@ void Player::movePlayer(void)
 		realX -= speed;
 		_x = (int)realX;
 	}
-	if (shooting)
+	if (shooting && cooldown <= 0)
 	{
-
-		
 		new Projectile(_x + 1, _y, 'R');
 		cooldown = _firerate;
 	}
@@ -181,5 +179,5 @@ void handlePlayer(void)
 	g_gm.getPlayer().movePlayer();
 	g_gm.getPlayer().putPlayer();
 	if (g_gm.getPlayer().cooldown > 0.0f)
-		g_gm.getPlayer().cooldown -= 1.0f/60.0f;
+		g_gm.getPlayer().cooldown -= g_gm.frameTime();
 }
