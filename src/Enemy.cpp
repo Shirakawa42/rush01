@@ -115,11 +115,11 @@ void Enemy::think()
 
 	if ((clock() - this->_lastshoot )/CLOCKS_PER_SEC >=this->_shootingRate)
 	{
-		new Projectile(_x + 2, _y + this->_size / 2 -1, 'L');
-		if (  std::fabs(g_gm.getPlayer().getX() - this->_x) < 7)
+		
+		if (  std::fabs(g_gm.getPlayer().getY() - this->_y) < 7)
 		{
 			this->_lastshoot = clock();
-				
+			new Projectile(_x + 2, _y + this->_size / 2 -1, 'L');
 		}
 
 
