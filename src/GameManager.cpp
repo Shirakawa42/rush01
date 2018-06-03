@@ -117,3 +117,32 @@ void 	GameManager::removeEnemy(Enemy *enemy)
 		tmp = tmp->next;
 	}
 }
+
+void 	GameManager::removeProjectile(Projectile *enemy) // copié collé en mode voleur
+{
+	t_projectiles *tmp = NULL;
+	t_projectiles *tmp2 = NULL;
+	tmp = this->p;
+	while (tmp != NULL)
+	{
+		if (tmp->next && tmp->next->projectile != enemy)
+			tmp2 = tmp; // backup for rollback and assigning the next one as next of the past one
+
+		if (tmp->projectile == enemy)
+		{
+			if (tmp2 == NULL) // first of the list found
+			{
+				if (tmp->next != NULL)
+					this->p = tmp->next;
+				else
+					this->p = NULL;
+			}
+			else
+				tmp2->next = tmp->next;
+			delete tmp->projectile; // dans tous les cas on delete
+			delete tmp;
+		}
+		tmp = tmp->next;
+	}
+}
+

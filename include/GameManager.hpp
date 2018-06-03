@@ -36,6 +36,7 @@ public:
 	void	putString(int x, int y, std::string string);
 	void 	removeEnemy(Enemy *enemy);
 	t_projectiles	*p;
+	void removeProjectile(Projectile *enemy);
 
 private:
 	GameManager(GameManager const &source);

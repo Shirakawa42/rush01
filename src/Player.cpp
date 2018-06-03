@@ -58,9 +58,11 @@ static bool checkProjectileCollision(void)
 	tmp = g_gm.p;
 	while (tmp)
 	{
-		if (tmp->projectile->getX() == g_gm.getPlayer().getX() &&
-				tmp->projectile->getY() == g_gm.getPlayer().getY())
+		if (tmp->projectile->getX() == g_gm.getPlayer().getX() && tmp->projectile->getY() == g_gm.getPlayer().getY() && tmp->projectile->getDirection() == 'R')
+		{
+			g_gm.removeProjectile(tmp->projectile);
 			return true;
+		}	
 		tmp = tmp->next;
 	}
 	return false;
