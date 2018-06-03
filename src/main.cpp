@@ -26,7 +26,7 @@ static void drawStars(Star *starmap)
 	int thinkstar = 0;
 	while (thinkstar < NSTARS-1)
 	{
-		starmap[thinkstar].think();
+		//starmap[thinkstar].think();
 		thinkstar++;
 	}
 }
@@ -39,12 +39,13 @@ int		main()
 
 	Star starmap[NSTARS];
 	
-
+	Enemy bite = Enemy(W-5, 5, 2);
 
 	while (1)
 	{
 		g_gm.updateTime();
 		wclear(g_gm.win);
+		bite.think();
 		// c'est ici qu'on affiche des trucs
 		drawStars(starmap);
 		HandleProjectiles();
@@ -53,9 +54,7 @@ int		main()
 		init_map();
 		wrefresh(g_gm.win);
 		clock_t clock1 = clock();
-		while ((clock() - clock1 )/CLOCKS_PER_SEC + g_gm.frameTime() < 1/60)
-		{
-		}
+
 	}
 	delwin(g_gm.win);
 	endwin();

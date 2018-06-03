@@ -12,8 +12,20 @@ Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y)
 				this->_drawMap = new std::string[1];
 				this->_drawMap[0] = "&";
 				break;
+		case 2 :
+				this->_size = 4;
+				this->_drawMap = new std::string[4];
+				this->_drawMap[0] = "/||>";
+				this->_drawMap[1] = "<|||";
+				this->_drawMap[2] = "\\||>";
+				this->_drawMap[3] = "    ";
+				break;
 	}
+
+	_x -= this->_size; 
+	this->_lastshoot = clock();
 	g_gm.registerEnemy(this);
+	_shootingRate = 1;
 }
 
 Enemy::~Enemy()
@@ -23,7 +35,7 @@ Enemy::~Enemy()
 
 Enemy::Enemy(Enemy const &source)
 {
-
+	(void)source;
 }
 
 Enemy & Enemy::operator=(const Enemy & rhs)
@@ -57,6 +69,19 @@ std::string *Enemy::getDrawMap()
 void Enemy::think()
 {
 	g_gm.putStrings(this->_x, this->_y, this->_drawMap, this->_size);
+
+	new Projectile(_x + -5, _y + this->_size / 2 -1, 'L');
+
+	if ((clock() - this->_lastshoot )/CLOCKS_PER_SEC >=this->_shootingRate)
+	{	
+		if (  std::fabs(g_gm.getPlayer().getX() - this->_x) < 7)
+		{
+			this->_lastshoot = clock();
+				
+		}
+
+
+	}
 	// onhit()
 }
 

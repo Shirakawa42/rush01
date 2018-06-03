@@ -87,9 +87,6 @@ void Player::respawn(void)
 {
 	_y = H / 2;
 	_x = 5;
-
-	wmove(g_gm.win, _y, _x);
-	wprintw(g_gm.win, "%c", SHIP);
 }
 
 void Player::movePlayer(void)
@@ -100,9 +97,9 @@ void Player::movePlayer(void)
 	ch = getch();
 
 	this->down = (ch==115);
-	this->up = (ch==122);
+	this->up = (ch==119);
 	this->right = (ch==100);
-	this->left = (ch==113);
+	this->left = (ch==97);
 	this->shooting = (ch==32);
 
 	/*if (ch == 115) // s
@@ -157,7 +154,7 @@ void Player::movePlayer(void)
 	}
 	if (shooting && cooldown <= 0.0f)
 	{
-		spawnProjectile(_x + 1, _y, 'R', _projectile_speed);
+		new Projectile(_x + 1, _y, 'R');
 		cooldown = _firerate;
 	}
 }

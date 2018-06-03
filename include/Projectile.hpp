@@ -5,10 +5,11 @@
 class	Projectile
 {
 	public:
-		Projectile();
+		
 		Projectile(int x, int y, char direction, float speed);
 		~Projectile();
 		Projectile( const Projectile & );
+		Projectile(int x, int y, char direction);
 		Projectile &	operator = ( const Projectile & );
 		char	getDirection() const;
 		int		getX() const;
@@ -21,6 +22,7 @@ class	Projectile
 		int		_x;
 		int		_y;
 		char	_direction;
+		Projectile();
 };
 
 void	spawnProjectile(int x, int y, char direction, float speed);

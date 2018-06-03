@@ -11,7 +11,7 @@ Star::Star(double speed, int y) : _speed(speed), _y(y)
 Star::Star()
 {
 	this->_x = W;
-	this->_speed = std::rand()%50;
+	this->_speed = std::rand()%45 +5;
 	this->_y = std::rand()%(H-2) + 1;
 
 }

@@ -1,6 +1,6 @@
 CXX = clang++
 
-CXXFLAGS = -lncurses -I include #-Wall -Wextra -Werror
+CXXFLAGS = -g -lncurses -I include #-Wall -Wextra -Werror
 
 NAME = game
 
