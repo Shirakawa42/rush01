@@ -33,3 +33,5 @@ class Enemy
 		std::clock_t _lastshoot;
 		size_t _size;
 };
+
+void	HandleEnemies(void);

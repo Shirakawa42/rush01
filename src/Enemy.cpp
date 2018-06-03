@@ -41,7 +41,6 @@ Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y)
 	tmp->next = new (t_enemy);
 	tmp->next->enemy = this;
 	tmp->next->next = NULL;
-
 }
 
 Enemy::~Enemy()
@@ -130,7 +129,7 @@ void Enemy::think()
 
 void Enemy::onHit()
 {
-	delete this;
+	//delete this;
 }
 
 
@@ -160,4 +159,16 @@ bool Enemy::collides(int x, int y)
 	if (c != ' ')
 		return (true);
 	return (false);
+}
+
+void	HandleEnemies(void)
+{
+	t_enemy *tmp = g_gm.enemyList;
+
+	while (tmp != NULL)
+	{
+		if (tmp->enemy != NULL)
+			tmp->enemy->think();
+		tmp = tmp->next;
+	}
 }

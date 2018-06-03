@@ -39,14 +39,14 @@ int		main()
 
 	Star starmap[NSTARS];
 	
-	Enemy bite = Enemy(W-5, 5, 2);
+	Enemy *bite = new Enemy(W-5, 5, 2);
 
 	while (1)
 	{
 		g_gm.updateTime();
 		wclear(g_gm.win);
 		HandleProjectiles();
-		bite.think();
+		HandleEnemies();
 		// c'est ici qu'on affiche des trucs
 		drawStars(starmap);
 		g_gm.getPlayer().think();
@@ -55,7 +55,6 @@ int		main()
 		handlePlayer();
 		init_map();
 		wrefresh(g_gm.win);
-		clock_t clock1 = clock();
 
 	}
 	delwin(g_gm.win);

@@ -44,7 +44,7 @@ static bool checkProjectileCollision(void)
 			//g_gm.removeProjectile(tmp->projectile);
 			delete tmp->projectile;
 			return true;
-		}	
+		}
 		tmp = tmp->next;
 	}
 	return false;
@@ -67,10 +67,9 @@ void Player::think()
 			if (tmp->enemy->collides(this->_x, this->_y))
 			{
 				this->onHit();
-				tmp->enemy->onHit();
+				delete(tmp->enemy);
 				break;
 			}
-
 			tmp = tmp->next;
 		}
 		if (checkProjectileCollision())
