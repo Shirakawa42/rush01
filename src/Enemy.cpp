@@ -240,12 +240,12 @@ bool Enemy::collides(unsigned int x, unsigned int y)
 void	HandleEnemies(void)
 {
 	t_enemy *tmp = g_gm.enemyList;
+	t_enemy *skp = NULL;
 
 	while (tmp != NULL)
 	{
 		if (tmp->enemy != NULL)
 		{
-			tmp->enemy->think();
 			if (tmp->enemy->movmentCD <= 0.0f)
 			{
 				tmp->enemy->randomMovments();
@@ -253,7 +253,9 @@ void	HandleEnemies(void)
 			}
 			if (tmp->enemy->movmentCD >= 0.0f)
 				tmp->enemy->movmentCD -= g_gm.frameTime();
+			skp = tmp->next;
+			tmp->enemy->think();
 		}
-		tmp = tmp->next;
+		tmp = skp;
 	}
 }
