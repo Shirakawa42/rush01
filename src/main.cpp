@@ -48,6 +48,7 @@ int		main()
 		bite.think();
 		// c'est ici qu'on affiche des trucs
 		drawStars(starmap);
+		g_gm.getPlayer().think();
 		HandleProjectiles();
 		////////////////////////////////////
 		handlePlayer();
