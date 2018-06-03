@@ -52,7 +52,7 @@ int		main()
 	{
 		if (std::time(0) > lastpop + 4)
 		{
-			new Enemy(W-8, 3 + std::rand()%(H-12), 1+std::rand()%4);
+			new Enemy(W-8, 3 + std::rand()%(H-12), 1+std::rand()%5);
 			lastpop = std::time(0);
 		} 
 		g_gm.updateTime();

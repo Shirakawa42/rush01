@@ -43,7 +43,28 @@ Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y), 
 				this->_drawMap[8] = "         ";
 				break;
 
-
+		case 5 :
+				this->_size = 18;
+				this->_drawMap = new std::string[18];
+				this->_drawMap[0] = "       .--.       ";
+				this->_drawMap[1] = " (\\_/)/  _ \\      ";
+				this->_drawMap[2] = " (o.o) _(   |____ ";
+				this->_drawMap[3] = ".- \".-`----'`"""")";
+				this->_drawMap[4] = "             '--` ";
+				this->_drawMap[5] = "                  ";
+				this->_drawMap[6] = "                  ";
+				this->_drawMap[7] = "                  ";
+				this->_drawMap[8] = "                  ";
+				this->_drawMap[9] = "                  ";
+				this->_drawMap[10] = "                  ";
+				this->_drawMap[11] = "                  ";
+				this->_drawMap[12] = "                  ";
+				this->_drawMap[13] = "                  ";
+				this->_drawMap[14] = "                  ";
+				this->_drawMap[15] = "                  ";
+				this->_drawMap[16] = "                  ";
+				this->_drawMap[17] = "                  ";
+				break;
 
 
 	}
@@ -128,7 +149,6 @@ unsigned int Enemy::getSize()
 	return (this->_size);
 }
 
-
 std::string *Enemy::getDrawMap()
 {
 	return (this->_drawMap);
@@ -159,6 +179,8 @@ void Enemy::think()
 			if (this->_size == 4 || this->_size == 9)
 				offset = 1;
 			else if (this->_size == 5)
+				offset = 2;
+			else if (this->_size == 18)
 				offset = 2;
 			new Projectile(_x - 1, _y + offset, 'L');
 		}
