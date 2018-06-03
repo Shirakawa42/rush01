@@ -33,6 +33,7 @@ static void drawStars(Star *starmap)
 
 int		main()
 {
+	srand(time(NULL));
 	initscr();
 	g_gm.win = newwin(H, W, 0, 0);
 	noecho();
