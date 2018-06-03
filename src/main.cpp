@@ -38,15 +38,20 @@ int		main()
 	noecho();
 
 	Star starmap[NSTARS];
-	
-	Enemy *bite = new Enemy(W-5, 5, 2);
+	time_t lastpop = std::time(0);
 
 	while (1)
 	{
+		if (std::time(0) > lastpop + 4)
+		{
+			new Enemy(W-8, 3 + std::rand()%(H-12), 1+std::rand()%4);
+			lastpop = std::time(0);
+		} 
+
 		g_gm.updateTime();
 		wclear(g_gm.win);
 		HandleProjectiles();
-		HandleEnemies();
+		HandleEnemies(); 
 		// c'est ici qu'on affiche des trucs
 		drawStars(starmap);
 		g_gm.getPlayer().think();

@@ -86,6 +86,7 @@ void Player::putPlayer(void)
 
 void Player::respawn(void)
 {
+	this->killed();
 	_y = H / 2;
 	_x = 5;
 

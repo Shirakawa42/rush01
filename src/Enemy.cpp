@@ -20,6 +20,32 @@ Enemy::Enemy(unsigned int x, unsigned int y, unsigned int type) : _x(x), _y(y)
 				this->_drawMap[2] = "\\||>";
 				this->_drawMap[3] = "    ";
 				break;
+
+		case 3 :
+				this->_size = 5;
+				this->_drawMap = new std::string[5];
+				this->_drawMap[0] = "     ";
+				this->_drawMap[1] = "    0";
+				this->_drawMap[2] = "c====";
+				this->_drawMap[3] = "    0";
+				this->_drawMap[4] = "     ";
+				break;
+		case 4 :
+				this->_size = 9;
+				this->_drawMap = new std::string[9];
+				this->_drawMap[0] = "    __   ";
+				this->_drawMap[1] = "===[__]  ";
+				this->_drawMap[2] = " (______)";
+				this->_drawMap[4] = "         ";
+				this->_drawMap[5] = "         ";
+				this->_drawMap[6] = "         ";
+				this->_drawMap[7] = "         ";
+				this->_drawMap[8] = "         ";
+				break;
+
+
+
+
 	}
 
 	_x -= this->_size; 
@@ -111,18 +137,20 @@ std::string *Enemy::getDrawMap()
 void Enemy::think()
 {
 	g_gm.putStrings(this->_x, this->_y, this->_drawMap, this->_size);
-
-
 	if ((clock() - this->_lastshoot )/CLOCKS_PER_SEC >=this->_shootingRate)
 	{
-		
 		if (  std::fabs(g_gm.getPlayer().getY() - this->_y) < 7)
 		{
 			this->_lastshoot = clock();
-			new Projectile(_x + 2, _y + this->_size / 2 -1, 'L');
+			int offset = 0;
+			if (this->_size == 4 || this->_size == 9)
+				offset = 1;
+			else if (this->_size == 5)
+				offset = 2;
+
+
+			new Projectile(_x - 1, _y + offset, 'L');
 		}
-
-
 	}
 	// onhit()
 }
