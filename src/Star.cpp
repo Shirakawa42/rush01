@@ -1,7 +1,6 @@
 #include <Star.hpp>
 #include <Game.hpp>
 #include <cstdlib>
-#define W 100
 
 Star::Star(double speed, int y) : _speed(speed), _y(y)
 {
