@@ -160,12 +160,24 @@ void Enemy::think()
 				offset = 1;
 			else if (this->_size == 5)
 				offset = 2;
-
-
 			new Projectile(_x - 1, _y + offset, 'L');
 		}
 	}
-	// onhit()
+	
+	t_projectiles	*tmp = g_gm.p;;
+	t_projectiles	*skip;
+	while (tmp)
+	{
+		skip = tmp->next;
+		if (tmp->projectile->getDirection() == 'R' && (this->collides(tmp->projectile->getX() ,tmp->projectile->getY())))
+		{
+			this->onHit();
+			delete tmp->projectile;
+		}
+		tmp = skip;
+	}
+
+
 }
 
 void Enemy::onHit()
