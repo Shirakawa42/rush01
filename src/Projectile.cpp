@@ -7,6 +7,33 @@ Projectile::Projectile() : _x(1), _y(1), _direction('R'), realX(1.0f), realY(1.0
 
 Projectile::~Projectile()
 {
+	t_projectiles	*tmp;
+	t_projectiles	*prev;
+
+	prev = NULL;
+	tmp = g_gm.p;
+	while (tmp && tmp->projectile != this)
+	{
+		prev = tmp;
+		tmp = tmp->next;
+	}
+	if (tmp && tmp->projectile == this)
+	{
+		//delete tmp->projectile; // pas de boucle infinie svp les enfants
+		if (!prev)
+		{
+			if (tmp->next)
+				g_gm.p = tmp->next;
+			else
+				g_gm.p = NULL;
+			delete tmp;
+		}
+		else
+		{
+			prev = tmp->next;
+			delete tmp;
+		}
+	}
 }
 
 Projectile::Projectile( const Projectile & cpy )
@@ -47,36 +74,6 @@ int		Projectile::getY() const
 	return _y;
 }
 
-void	deleteProjectile(Projectile *p)
-{
-	t_projectiles	*tmp;
-	t_projectiles	*prev;
-
-	prev = NULL;
-	tmp = g_gm.p;
-	while (tmp && tmp->projectile != p)
-	{
-		prev = tmp;
-		tmp = tmp->next;
-	}
-	if (tmp && tmp->projectile == p)
-	{
-		delete tmp->projectile;
-		if (!prev)
-		{
-			if (tmp->next)
-				g_gm.p = tmp->next;
-			else
-				g_gm.p = NULL;
-			delete tmp;
-		}
-		else
-		{
-			prev = tmp->next;
-			delete tmp;
-		}
-	}
-}
 
 void	spawnProjectile(int x, int y, char direction, float speed)
 {
@@ -131,7 +128,7 @@ void	HandleProjectiles(void)
 		{
 			tmp->projectile->move();
 			if (tmp->projectile->getX() == W || tmp->projectile->getX() == 0)
-				deleteProjectile(tmp->projectile);
+				delete tmp->projectile;
 		}
 		tmp = tmp->next;
 	}

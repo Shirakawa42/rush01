@@ -6,6 +6,7 @@ GameManager::GameManager()
 	this->currentTime = clock();
 	this->lastTime = clock();
 	this->p = NULL;
+	score = 0;
 } 
 
 GameManager::~GameManager()
@@ -118,31 +119,19 @@ void 	GameManager::removeEnemy(Enemy *enemy)
 	}
 }
 
-void 	GameManager::removeProjectile(Projectile *enemy) // copié collé en mode voleur
+void GameManager::registerEnemy(Enemy *enemy)
 {
-	t_projectiles *tmp = NULL;
-	t_projectiles *tmp2 = NULL;
-	tmp = this->p;
-	while (tmp != NULL)
+	t_enemy *tmp = this->enemyList;
+	if (tmp == NULL)
 	{
-		if (tmp->next && tmp->next->projectile != enemy)
-			tmp2 = tmp; // backup for rollback and assigning the next one as next of the past one
-
-		if (tmp->projectile == enemy)
-		{
-			if (tmp2 == NULL) // first of the list found
-			{
-				if (tmp->next != NULL)
-					this->p = tmp->next;
-				else
-					this->p = NULL;
-			}
-			else
-				tmp2->next = tmp->next;
-			delete tmp->projectile; // dans tous les cas on delete
-			delete tmp;
-		}
-		tmp = tmp->next;
+		this->enemyList = new t_enemy;
+		this->enemyList->enemy = enemy;
+		return;
 	}
+	while (tmp->next)
+		tmp = tmp->next; // au bout de la liste
+	tmp->next = new t_enemy;
+	tmp->next->enemy = enemy;
 }
+
 

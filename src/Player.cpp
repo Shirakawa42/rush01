@@ -31,25 +31,6 @@ float	Player::getProjectileSpeed(void) const
 	return _projectile_speed;
 }
 
-static bool checkcollision(int x, int y, Enemy *enemy)
-{
-	if (x < enemy->getX())
-		return false;
-	if (y < enemy->getY())
-		return false;
-
-	int diffx = x - enemy->getX();
-	int diffy = y - enemy->getY();
-	if (diffx > enemy->getSize())
-		return false;
-	if (diffy > enemy->getSize())
-		return false;
-	char c = enemy->getDrawMap()[x].c_str()[y];
-	if (c != ' ')
-		return (true);
-	return (false);
-
-}
 
 static bool checkProjectileCollision(void)
 {
@@ -60,7 +41,8 @@ static bool checkProjectileCollision(void)
 	{
 		if (tmp->projectile->getX() == g_gm.getPlayer().getX() && tmp->projectile->getY() == g_gm.getPlayer().getY() && tmp->projectile->getDirection() == 'R')
 		{
-			g_gm.removeProjectile(tmp->projectile);
+			//g_gm.removeProjectile(tmp->projectile);
+			delete tmp->projectile;
 			return true;
 		}	
 		tmp = tmp->next;
@@ -82,7 +64,7 @@ void Player::think()
 		tmp = g_gm.getEnemyList();
 		while (tmp != NULL)
 		{
-			if (checkcollision(this->_x, this->_y, tmp->enemy))
+			if (tmp->enemy->collides(this->_x, this->_y))
 			{
 				this->onHit();
 				break;
@@ -224,6 +206,6 @@ void handlePlayer(void)
 {
 	g_gm.getPlayer().movePlayer();
 	g_gm.getPlayer().putPlayer();
-	/*if (g_gm.getPlayer().cooldown > 0.0f)
-		g_gm.getPlayer().cooldown -= 1.0f/60.0f;*/
+	if (g_gm.getPlayer().cooldown > 0.0f)
+		g_gm.getPlayer().cooldown -= 1.0f/60.0f;
 }

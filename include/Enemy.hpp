@@ -23,6 +23,7 @@ class Enemy
 		std::string *getDrawMap();
 		void think();
 		void onHit();
+		bool collides(int x, int y);
 
 	private:
 		unsigned int _x;

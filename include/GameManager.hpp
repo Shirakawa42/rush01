@@ -37,6 +37,8 @@ public:
 	void 	removeEnemy(Enemy *enemy);
 	t_projectiles	*p;
 	void removeProjectile(Projectile *enemy);
+	int score;
+	void registerEnemy(Enemy *enemy);
 
 private:
 	GameManager(GameManager const &source);
