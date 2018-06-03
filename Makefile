@@ -1,7 +1,7 @@
 NAME		=	ft_retro
 
 CC			=	clang++
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -std=c++98 -g -fsanitize=address 
 
 SRC_DIR		=	src/
 INC_DIR		=	include/

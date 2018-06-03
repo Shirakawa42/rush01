@@ -228,11 +228,13 @@ bool Enemy::collides(unsigned int x, unsigned int y)
 
 	int diffx = x - this->getX();
 	int diffy = y - this->getY();
-	if (diffx > (int)this->getSize())
+	if (diffx > (int)this->getSize()-1)
 		return false;
-	if (diffy > (int)this->getSize())
+	if (diffy > (int)this->getSize()-1)
 		return false;
-	char c = this->getDrawMap()[x].c_str()[y];
+	std::cout << "reeeeeee " << diffx << "   " <<  (int)this->getSize() << std::endl;
+	std::cout << "raaaa " << diffy << "   " <<  (int)this->getSize() << std::endl;
+	char c = this->getDrawMap()[diffy].c_str()[diffx];
 	if (c != ' ')
 		return (true);
 	return (false);

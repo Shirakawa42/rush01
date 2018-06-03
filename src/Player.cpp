@@ -109,7 +109,7 @@ void Player::movePlayer(void)
 	this->shooting = (ch==32);
 
 	if (g_gm.end == false)
-		g_gm.end = (ch==27);
+		g_gm.end = (ch==116);
 
 	if (up && _y > 1)
 	{
